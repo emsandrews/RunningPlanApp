@@ -2,9 +2,7 @@
 
 ## An app to help you prepare for your next race!
 
-___
-
-###App Description and Purpose
+### App Description and Purpose
 
 >**What the application will do:**
 >
