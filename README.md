@@ -11,13 +11,13 @@
  >- race date
  >- time goals
  >- current fitness level
-
-
+>
+>
 >**Who the app is for:**
 > 
 >This app is designed for anyone who is planning to run a race and wants some guidance in their training regardless of fitness level. 
-
-
+>
+>
 >**Personal Motivation:**
 >
 >I run a lot and know how difficult it can be to find guidance when preparing for your next race. 
