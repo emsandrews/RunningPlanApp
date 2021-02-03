@@ -1,11 +1,26 @@
-# My Personal Project
+# Running Plan Generator App
 
-## A subtitle
+## An app to help you prepare for your next race!
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+___
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+>**What the application will do:**
+>
+>>This app will generate a *custom* running plan based on several factors including: 
+ >>- race distance
+ >>- race date
+ >>- time goals
+ >>- current fitness level
+
+___
+
+>**Who the app is for:**
+> 
+>>This app is designed for anyone who is planning to run a race and wants some guidance in their training regardless of fitness level. 
+
+___
+
+>**Personal Motivation:**
+>
+>>I run a lot and know how difficult it can be to find guidance when preparing for your next race. 
+>>It can be difficult to find the right running plan for you and personal coaching is expensive! 
