@@ -6,7 +6,7 @@
 
 >**What the application will do:**
 >
->>This app will generate a *custom* running plan based on several factors including: 
+>This app will generate a *custom* running plan based on several factors including: 
  >- race distance
  >- race date
  >- time goals
