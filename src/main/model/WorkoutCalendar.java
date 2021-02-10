@@ -3,7 +3,6 @@ package model;
 //Add a workout to your calendar, get workout, remove workout
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 
@@ -19,45 +18,37 @@ public class WorkoutCalendar {
     }
 
     //MODIFIES: this
-    //EFFECTS: adds a new workout or race to the calendar
-    public void addWorkout(Date day, String type, int distance, String comment, Boolean status) {
-        Workout workout = new Workout();
+    //EFFECTS: adds a new workout or race to the workout calendar
+    public void addWorkout(Workout workout) {
         workouts.add(workout);
     }
 
-    //EFFECTS: returns workout on a given date
-    public void getWorkoutOnDay(Date day) {
-        if (day == workout.date) {
-            return workout.workouts();
+    //EFFECTS: returns the workout that matches a given date.
+    public Workout findWorkoutOnDay(int year, int month, int day) {
+        for (int i = 0; i < workouts.size(); i++) {
+            Workout workout = workouts.get(i);
+            long workoutTime = workout.getDate().getTime();
+            long inputTime = new GregorianCalendar(year, month - 1, day).getTime().getTime();
+            if (workoutTime == inputTime) {
+                return workout;
+            }
         }
         return null;
     }
 
+
     //MODIFIES: this
-    //EFFECTS: removes workout from given date
-    public void removeWorkout(Date day) {
-        Workout workout =
-        this.workout.remove();
+    //EFFECTS: returns all the workouts in the running calendar as a string.
+    public String getRunningPlan() {
 
-    }
+        ArrayList<String> workoutStringList = new ArrayList<>();
 
-    //EFFECTS returns list of upcoming workouts
-    public void getWorkoutCalendar() {
-    }
-
-    //EFFECTS returns percent of workouts completed
-    public void getPercentWorkoutsComplete() {
-
-    }
-
-    //EFFECTS returns total Kms completed so far
-    public void getTotalKms() {
-
-    }
-
-    //EFFECTS returns number of days left until the next race
-    public void daysToNextRace() {
-
+        for (int i = 0; i < workouts.size(); i++) {
+            Workout workout = workouts.get(i);
+            String workoutString = workout.workoutToString();
+            workoutStringList.add(workoutString);
+        }
+        return String.join("\n \n ", workoutStringList);
     }
 
 
