@@ -23,6 +23,7 @@ public class WorkoutCalendar {
         workouts.add(workout);
     }
 
+
     //EFFECTS: returns the workout that matches a given date.
     public Workout findWorkoutOnDay(int year, int month, int day) {
         for (int i = 0; i < workouts.size(); i++) {

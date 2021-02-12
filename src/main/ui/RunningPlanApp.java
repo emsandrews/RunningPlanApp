@@ -3,8 +3,6 @@ package ui;
 import model.Workout;
 import model.WorkoutType;
 import model.WorkoutCalendar;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -53,10 +51,11 @@ public class RunningPlanApp {
     //EFFECTS: processes user commands
     private void processCommand(String command) {
 
-        System.out.println("Welcome to your running plan, what would you like to do?");
 
         if (command.equals("new")) {
             createNewWorkout();
+        } else if (command.equals("race")) {
+            createNewRace();
         } else if (command.equals("workout")) {
             checkWorkout();
         } else if (command.equals("complete")) {
@@ -73,13 +72,15 @@ public class RunningPlanApp {
 
     //EFFECTS: displays menu of options to user
     private void displayMenu() {
+        System.out.println("\n" + "~~~~Main Menu~~~~");
         System.out.println("Select from:");
-        System.out.println("new -> Add a new workout");
-        System.out.println("workout -> View a workout");
-        System.out.println("complete -> Complete a workout");
-        System.out.println("comment -> Comment on a workout");
-        System.out.println("view -> View your running plan");
-        System.out.println("quit -> Log out");
+        System.out.println("\t new -> Add a new workout");
+        System.out.println("\t race -> Add a new race");
+        System.out.println("\t workout -> View a workout");
+        System.out.println("\t complete -> Complete a workout");
+        System.out.println("\t comment -> Comment on a workout");
+        System.out.println("\t view -> View your running plan");
+        System.out.println("\t quit -> Log out");
     }
 
     //MODIFIES: this
@@ -101,14 +102,41 @@ public class RunningPlanApp {
         WorkoutType type = WorkoutType.valueOf(value);
 
         System.out.println("Enter the distance you will run (in Kilometers):");
-        int distance = input.nextInt();
+        double distance = input.nextDouble();
 
-        System.out.println("Creating workout...");
         Workout createdWorkout = new Workout(year, month, day, type, distance, "");
         workoutCalendar.addWorkout(createdWorkout);
         String workoutString = createdWorkout.workoutToString();
 
-        System.out.println("Your workout has been added: " + "\n " + workoutString);
+        System.out.println("\n " + "Your workout has been added: " + "\n " + workoutString);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: allows user to add a new race to their plan for a specific day
+    private void createNewRace() {
+        System.out.println("Enter the year this race will take place:");
+        int year = input.nextInt();
+
+        System.out.println("Enter the month this race will take place(1-12):");
+        int month = input.nextInt();
+
+        System.out.println("Enter the day this race will take place (1-31):");
+        int day = input.nextInt();
+
+        System.out.println("Enter the distance you will run (in Kilometers):");
+        double distance = input.nextDouble();
+
+        System.out.println("Enter the name of the race:");
+        String comment = input.next();
+
+        int value = 8;
+        WorkoutType type = WorkoutType.valueOf(value);
+
+        Workout createdRace = new Workout(year, month, day, type, distance, comment);
+        workoutCalendar.addWorkout(createdRace);
+        String raceString = createdRace.raceToString();
+
+        System.out.println("\n " + "Your race has been added: " + "\n " + raceString);
     }
 
 
@@ -124,12 +152,10 @@ public class RunningPlanApp {
         System.out.println("What day will this workout take place (1-31)?");
         int day = input.nextInt();
 
-        System.out.println("Retrieving Workout...");
         Workout workoutOnDay = workoutCalendar.findWorkoutOnDay(year, month, day);
         String workoutString = workoutOnDay.workoutToString();
 
-
-        System.out.println("Here is your workout:" + "\n " + workoutString);
+        System.out.println("\n " + "Here is your workout:" + "\n " + workoutString);
     }
 
 
@@ -144,11 +170,11 @@ public class RunningPlanApp {
         System.out.println("On what day did you complete this workout (1-31)?");
         int day = input.nextInt();
 
-        System.out.println("Updating workout status...");
         Workout workoutOnDay = workoutCalendar.findWorkoutOnDay(year, month, day);
         workoutOnDay.setWorkoutStatusComplete();
+        String workoutString = workoutOnDay.workoutToString();
 
-        System.out.println("Your workout status has been set to complete!");
+        System.out.println("\n" + "Your workout status has been set to complete!" + "\n " + workoutString);
     }
 
     //EFFECTS: allows user to add a comment to their workout
@@ -165,18 +191,18 @@ public class RunningPlanApp {
         System.out.println("Enter your comment: ");
         String comment = input.next();
 
-        System.out.println("Adding comment to workout...");
         Workout workoutOnDay = workoutCalendar.findWorkoutOnDay(year, month, day);
         workoutOnDay.setWorkoutComment(comment);
+        String workoutString = workoutOnDay.workoutToString();
 
-        System.out.println("Your comment has been added");
+        System.out.println("\n " + "Your comment has been added" + "\n " + workoutString);
     }
 
 
     //EFFECTS: allows user to view their overall plan
     private void viewPlan() {
         String workoutCalendarString = workoutCalendar.getRunningPlan();
-        System.out.println("Here is your running plan: " + "\n " + workoutCalendarString);
+        System.out.println("\n " + "Here is your running plan: " + "\n " + workoutCalendarString);
     }
 
 

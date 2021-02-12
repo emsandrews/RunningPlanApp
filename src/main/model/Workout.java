@@ -1,20 +1,21 @@
 package model;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 //Workout with a date, type, distance, comment, and status.
 public class Workout {
     private Date date = null;
     private WorkoutType type = null;
-    private int distance = 0;
+    private double distance = 0;
     private String comment = "";
     private Boolean status = false;
 
 
 
     //EFFECTS: Constructs a workout
-    public Workout(int year, int month, int day, WorkoutType type, int distance, String comment) {
+    public Workout(int year, int month, int day, WorkoutType type, double distance, String comment) {
         this.date = new GregorianCalendar(year, month - 1, day).getTime();
         this.type = type;
         this.distance = distance;
@@ -27,7 +28,7 @@ public class Workout {
     }
 
     //EFFECTS returns workout distance
-    public int getDistance() {
+    public double getDistance() {
         return distance;
     }
 
@@ -72,15 +73,33 @@ public class Workout {
     //MODIFIES: this
     //EFFECTS: returns the workout as a string
     public String workoutToString() {
-        String date = this.date.toString();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyy");
+        String strDate = formatter.format(this.date);
         String type = this.type.toString();
-        String distance = Integer.toString(this.distance);
+        String distance = Double.toString(this.distance);
         String status = workoutStatusToString();
 
-        return "Date: " + date + "\n "
+        return "Date: " + strDate + "\n "
                 + "Type: " + type + "\n "
                 + "Distance: " + distance + "\n "
                 + "Comment: " + this.comment + "\n "
+                + "Status: " + status;
+
+    }
+
+    //MODIFIES: this
+    //EFFECTS: returns the workout as a string
+    public String raceToString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyy");
+        String strDate = formatter.format(this.date);
+        String type = this.type.toString();
+        String distance = Double.toString(this.distance);
+        String status = workoutStatusToString();
+
+        return "Date: " + strDate + "\n "
+                + "Type: " + type + "\n "
+                + "Distance: " + distance + "\n "
+                + "Race Name: " + this.comment + "\n "
                 + "Status: " + status;
 
     }

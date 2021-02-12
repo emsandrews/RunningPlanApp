@@ -10,9 +10,9 @@ public enum WorkoutType {
     LONG(3),
     HILLS(4),
     CROSSTRAIN(5),
-    REST(5),
-    STRETCH(6),
-    RACE(7);
+    REST(6),
+    STRETCH(7),
+    RACE(8);
 
 
     private int value;

@@ -26,11 +26,14 @@ class WorkoutModelTest {
     public void testWorkoutAdded() {
         testCalendar.add(workoutOne);
         workouts.addWorkout(workoutOne);
-        assertEquals(testCalendar, workouts);
+        int year = 2021;
+        int month = 2;
+        int day = 20;
+        assertEquals(testCalendar.get(0), workouts.findWorkoutOnDay(year, month, day));
 
     }
 
-    //Test findWorkoutOnDay method in WorkoutCalendar Class
+
     @Test
     public void testFindWorkoutOnDay() {
         workouts.addWorkout(workoutOne);
@@ -43,13 +46,13 @@ class WorkoutModelTest {
         workouts.addWorkout(workoutOne);
         workouts.addWorkout(workoutTwo);
         String runningPlan = workouts.getRunningPlan();
-        String testString = "Date: " + "Sat Feb 20 00:00:00 PST 2021" + "\n "
+        String testString = "Date: " + "20/02/2021" + "\n "
         + "Type: " + "SPEED" + "\n "
         + "Distance: " + "12" + "\n "
         + "Comment: " + "\n "
         + "Status: " + "Incomplete" + "\n \n "
 
-        + "Date: " + "Tue Mar 02 00:00:00 PST 2021" + "\n "
+        + "Date: " + "02/03/2021" + "\n "
         + "Type: " + "LONG" + "\n "
         + "Distance: " + "20" + "\n "
         + "Comment: " + "\n "
@@ -59,21 +62,21 @@ class WorkoutModelTest {
 
     }
 
-    //Test setWorkoutComment method in Workout Class
+
     @Test
     public void testCommentAddedToWorkout() {
         this.workoutOne.setWorkoutComment("great run");
         assertEquals("great run", workoutOne.getComment());
     }
 
-    //Test setWorkoutStatusComplete method in Workout Class
+
     @Test
     public void testWorkoutStatusUpdated() {
         workoutOne.setWorkoutStatusComplete();
         assertTrue(workoutOne.getStatus());
     }
 
-    //Test date is added correctly in Workout Constructor
+
     @Test
     public void testWorkoutDateSet() {
         Date date = new GregorianCalendar(2020, 2 - 1, 12).getTime();
@@ -81,7 +84,7 @@ class WorkoutModelTest {
         assertEquals(date, workoutOnDay.getDate());
     }
 
-    //Test Workout Type is added correctly in Workout Constructor
+
     @Test
     public void testWorkoutTypeSet() {
         WorkoutType type = WorkoutType.LONG;
@@ -89,17 +92,7 @@ class WorkoutModelTest {
         assertEquals(type, workoutWithType.getWorkoutType());
     }
 
-    //Test Workout Type is added correctly in Workout Constructor
-    //Test Workout Type can be obtained from value
-    @Test
-    public void testGetWorkoutTypeFromValue() {
-        WorkoutType type = WorkoutType.valueOf(3);
-        Workout workoutWithType = new Workout(2020, 2, 12, type, 12, null);
-        assertEquals(type, workoutWithType.getWorkoutType());
 
-    }
-
-    //Test Workout Distance is added correctly in Workout Constructor
     @Test
     public void testWorkoutDistanceSet() {
         int distance = 10;
@@ -112,7 +105,7 @@ class WorkoutModelTest {
     @Test
     public void testWorkoutToString() {
         String workoutString = workoutOne.workoutToString();
-        String testString = "Date: " + "Sat Feb 20 00:00:00 PST 2021" + "\n "
+        String testString = "Date: " + "20/02/2021" + "\n "
                 + "Type: " + "SPEED" + "\n "
                 + "Distance: " + "12" + "\n "
                 + "Comment: " + "" + "\n "
@@ -120,6 +113,33 @@ class WorkoutModelTest {
 
         assertEquals(testString, workoutString);
 
+    }
+
+    @Test
+    public void testRaceToString() {
+        String raceString = workoutOne.raceToString();
+        String testString = "Date: " + "20/02/2021" + "\n "
+                + "Type: " + "SPEED" + "\n "
+                + "Distance: " + "12" + "\n "
+                + "Race Name: " + "" + "\n "
+                + "Status: " + "Incomplete";
+
+        assertEquals(testString, raceString);
+
+    }
+
+    @Test
+    public void testGetWorkoutTypeFromValue() {
+        WorkoutType type = WorkoutType.valueOf(3);
+        Workout workoutWithType = new Workout(2020, 2, 12, type, 12, null);
+        assertEquals(type, workoutWithType.getWorkoutType());
+
+    }
+
+    @Test
+    public void testGetValue() {
+        WorkoutType workoutType = WorkoutType.SPEED;
+        assertEquals(1, workoutType.getValue());
     }
 
 }

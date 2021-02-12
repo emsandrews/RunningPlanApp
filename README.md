@@ -26,10 +26,10 @@ ___
 
 ### User Stories
 
-> - As a user I want to add a workout or race to my workout calendar.
+> - As a user I want to add a workout or race to my workout calendar/running plan.
 > - As a user I want to mark a workout or race as complete. 
 > - As a user I want to leave a comment on a workout or race. 
 > - As a user I want to view a workout on a given day. 
-> - As a user I want to view all the workouts on my running plan. 
+> - As a user I want to view all the workouts on my workout calendar/ running plan. 
 
 
