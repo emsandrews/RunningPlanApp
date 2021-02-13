@@ -13,7 +13,7 @@ public class Workout {
     private Boolean status = false;
 
 
-
+    //REQUIRES: valid month (1-12), and valid day (1-31)
     //EFFECTS: Constructs a workout
     public Workout(int year, int month, int day, WorkoutType type, double distance, String comment) {
         this.date = new GregorianCalendar(year, month - 1, day).getTime();
@@ -60,17 +60,17 @@ public class Workout {
         this.status = true;
     }
 
-    //MODIFIES: this
+
     //EFFECTS: changes the workout status from a boolean to a string
     public String workoutStatusToString() {
 
-        if (this.status == true) {
+        if (this.status) {
             return "Complete";
         }
         return "Incomplete";
     }
 
-    //MODIFIES: this
+
     //EFFECTS: returns the workout as a string
     public String workoutToString() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyy");
@@ -87,7 +87,7 @@ public class Workout {
 
     }
 
-    //MODIFIES: this
+
     //EFFECTS: returns the workout as a string
     public String raceToString() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyy");

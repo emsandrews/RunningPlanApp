@@ -16,11 +16,11 @@ public enum WorkoutType {
 
 
     private int value;
-    private static Map map = new HashMap<>();
+    private static Map<Integer, WorkoutType> map = new HashMap<>();
 
     //MODIFIES: this
     //EFFECTS: builds a hashmap of enumeration values and workoutType
-    private WorkoutType(int value) {
+    WorkoutType(int value) {
         this.value = value;
     }
 

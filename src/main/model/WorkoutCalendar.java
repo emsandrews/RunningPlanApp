@@ -23,31 +23,28 @@ public class WorkoutCalendar {
         workouts.add(workout);
     }
 
+    public Workout getWorkout(int i) {
+        return workouts.get(i);
+    }
 
-    //EFFECTS: returns the workout that matches a given date.
-    public Workout findWorkoutOnDay(int year, int month, int day) {
-        for (int i = 0; i < workouts.size(); i++) {
-            Workout workout = workouts.get(i);
-            long workoutTime = workout.getDate().getTime();
-            long inputTime = new GregorianCalendar(year, month - 1, day).getTime().getTime();
-            if (workoutTime == inputTime) {
-                return workout;
-            }
-        }
-        return null;
+    //EFFECTS: produces true if workout calendar is empty
+    public Boolean workoutCalendarIsEmpty() {
+        return workouts.isEmpty();
     }
 
 
-    //MODIFIES: this
+
     //EFFECTS: returns all the workouts in the running calendar as a string.
     public String getRunningPlan() {
 
         ArrayList<String> workoutStringList = new ArrayList<>();
 
-        for (int i = 0; i < workouts.size(); i++) {
-            Workout workout = workouts.get(i);
+        for (Workout workout : workouts) {
             String workoutString = workout.workoutToString();
-            workoutStringList.add(workoutString);
+            int workoutInt = workouts.indexOf(workout) + 1;
+            String workoutNumber = Integer.toString(workoutInt);
+            String workoutStringAndNumber = "Workout Number: " + workoutNumber + "\n " + workoutString;
+            workoutStringList.add(workoutStringAndNumber);
         }
         return String.join("\n \n ", workoutStringList);
     }

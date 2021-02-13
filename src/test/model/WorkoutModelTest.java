@@ -11,6 +11,7 @@ import java.util.ArrayList;
 class WorkoutModelTest {
     Workout workoutOne;
     Workout workoutTwo;
+    Workout workoutThree;
     WorkoutCalendar workouts;
     ArrayList<Workout> testCalendar;
 
@@ -18,26 +19,19 @@ class WorkoutModelTest {
     public void runBefore(){
         workoutOne = new Workout(2021, 2, 20, WorkoutType.SPEED, 12, "");
         workoutTwo = new Workout(2021, 2, 30, WorkoutType.LONG, 20, "");
+        workoutThree = new Workout(2021, 10, 10, WorkoutType.LONG, 20, "great run");
         workouts = new WorkoutCalendar();
         testCalendar = new ArrayList<>();
     }
+
+    //WorkoutCalendar Class Tests
 
     @Test
     public void testWorkoutAdded() {
         testCalendar.add(workoutOne);
         workouts.addWorkout(workoutOne);
-        int year = 2021;
-        int month = 2;
-        int day = 20;
-        assertEquals(testCalendar.get(0), workouts.findWorkoutOnDay(year, month, day));
 
-    }
-
-
-    @Test
-    public void testFindWorkoutOnDay() {
-        workouts.addWorkout(workoutOne);
-        assertEquals(workoutOne, workouts.findWorkoutOnDay(2021, 2, 20));
+        assertEquals(testCalendar.get(0), workouts.getWorkout(0));
 
     }
 
@@ -46,32 +40,56 @@ class WorkoutModelTest {
         workouts.addWorkout(workoutOne);
         workouts.addWorkout(workoutTwo);
         String runningPlan = workouts.getRunningPlan();
-        String testString = "Date: " + "20/02/2021" + "\n "
-        + "Type: " + "SPEED" + "\n "
-        + "Distance: " + "12" + "\n "
-        + "Comment: " + "\n "
-        + "Status: " + "Incomplete" + "\n \n "
+        String testString = "Workout Number: 1" + "\n "
+                + "Date: " + "20/02/2021" + "\n "
+                + "Type: " + "SPEED" + "\n "
+                + "Distance: " + "12.0" + "\n "
+                + "Comment: " + "\n "
+                + "Status: " + "Incomplete" + "\n \n "
 
-        + "Date: " + "02/03/2021" + "\n "
-        + "Type: " + "LONG" + "\n "
-        + "Distance: " + "20" + "\n "
-        + "Comment: " + "\n "
-        + "Status: " + "Incomplete";
+                + "Workout Number: 2" + "\n "
+                + "Date: " + "02/03/2021" + "\n "
+                + "Type: " + "LONG" + "\n "
+                + "Distance: " + "20.0" + "\n "
+                + "Comment: " + "\n "
+                + "Status: " + "Incomplete";
 
         assertEquals(testString, runningPlan);
-
     }
 
+    @Test
+    public void testGetWorkout() {
+        workouts.addWorkout(workoutOne);
+        workouts.addWorkout(workoutTwo);
+        workouts.addWorkout(workoutTwo);
+        assertEquals(workoutOne, workouts.getWorkout(0));
+    }
 
     @Test
-    public void testCommentAddedToWorkout() {
+    public void testWorkoutCalendarIsEmptyTrue() {
+        assertTrue(workouts.workoutCalendarIsEmpty());
+    }
+
+    @Test
+    public void testWorkoutCalendarIsEmptyFalse() {
+        workouts.addWorkout(workoutOne);
+        workouts.addWorkout(workoutTwo);
+        workouts.addWorkout(workoutTwo);
+
+        assertFalse(workouts.workoutCalendarIsEmpty());
+    }
+
+    //Workout Class Tests
+
+    @Test
+    public void testSetWorkoutComment() {
         this.workoutOne.setWorkoutComment("great run");
         assertEquals("great run", workoutOne.getComment());
     }
 
 
     @Test
-    public void testWorkoutStatusUpdated() {
+    public void testSetWorkoutStatusComplete() {
         workoutOne.setWorkoutStatusComplete();
         assertTrue(workoutOne.getStatus());
     }
@@ -98,7 +116,48 @@ class WorkoutModelTest {
         int distance = 10;
         Workout workoutWithDistance = new Workout(2020, 2, 12, WorkoutType.SPEED, distance, null);
         assertEquals(distance, workoutWithDistance.getDistance());
+    }
 
+    @Test
+    public void testGetDate() {
+        Date date = workoutOne.getDate();
+        Date testDate = new GregorianCalendar(2021, 2 - 1, 20).getTime();
+        assertEquals(testDate, date);
+    }
+
+    @Test
+    public void testGetDistance() {
+        double distance = 12;
+        assertEquals(distance, workoutOne.getDistance());
+    }
+
+    @Test
+    public void testGetComment() {
+        String comment = "great run";
+        assertEquals(comment, workoutThree.getComment());
+    }
+
+    @Test
+    public void testGetWorkoutType() {
+        WorkoutType type = WorkoutType.SPEED;
+        assertEquals(type, workoutOne.getWorkoutType());
+    }
+
+    @Test
+    public void testGetWorkoutStatus() {
+        assertFalse(workoutOne.getStatus());
+    }
+
+    @Test
+    public void testWorkoutStatusToStringTrue() {
+        workoutOne.setWorkoutStatusComplete();
+        assertEquals("Complete", workoutOne.workoutStatusToString());
+    }
+
+    @Test
+    public void testWorkoutStatusToStringFalse() {
+
+        assertEquals("Incomplete", workoutOne.workoutStatusToString());
     }
 
 
@@ -107,7 +166,7 @@ class WorkoutModelTest {
         String workoutString = workoutOne.workoutToString();
         String testString = "Date: " + "20/02/2021" + "\n "
                 + "Type: " + "SPEED" + "\n "
-                + "Distance: " + "12" + "\n "
+                + "Distance: " + "12.0" + "\n "
                 + "Comment: " + "" + "\n "
                 + "Status: " + "Incomplete";
 
@@ -120,13 +179,15 @@ class WorkoutModelTest {
         String raceString = workoutOne.raceToString();
         String testString = "Date: " + "20/02/2021" + "\n "
                 + "Type: " + "SPEED" + "\n "
-                + "Distance: " + "12" + "\n "
+                + "Distance: " + "12.0" + "\n "
                 + "Race Name: " + "" + "\n "
                 + "Status: " + "Incomplete";
 
         assertEquals(testString, raceString);
 
     }
+
+    //WorkoutTypeEnum Tests
 
     @Test
     public void testGetWorkoutTypeFromValue() {

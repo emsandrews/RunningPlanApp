@@ -60,9 +60,7 @@ public class RunningPlanApp {
             checkWorkout();
         } else if (command.equals("complete")) {
             completeWorkout();
-        } else if (command.equals("comment")) {
-            commentWorkout();
-        } else if (command.equals("view")) {
+        }  else if (command.equals("view")) {
             viewPlan();
         } else {
             System.out.println("Selection not valid...");
@@ -78,30 +76,30 @@ public class RunningPlanApp {
         System.out.println("\t race -> Add a new race");
         System.out.println("\t workout -> View a workout");
         System.out.println("\t complete -> Complete a workout");
-        System.out.println("\t comment -> Comment on a workout");
         System.out.println("\t view -> View your running plan");
         System.out.println("\t quit -> Log out");
     }
 
+    //REQUIRES: valid year, valid month (1-12), and valid day (1-31)
     //MODIFIES: this
     //EFFECTS: allows user to add a new workout to their plan for a specific day
     private void createNewWorkout() {
-        System.out.println("Enter the year you would like to complete this workout:");
+        System.out.println("Enter the year you will complete this workout:");
         int year = input.nextInt();
 
-        System.out.println("Enter the month you would like to complete this workout (1-12):");
+        System.out.println("Enter the month you will complete this workout (1-12):");
         int month = input.nextInt();
 
-        System.out.println("Enter the day you would like to complete this workout (1-31):");
+        System.out.println("Enter the day you will complete this workout (1-31):");
         int day = input.nextInt();
 
         System.out.println("   //Enter the type of workout:\n" + " 1 -> SPEED,\n" + " 2 -> MEDIUM,\n"
-                + " 3 -> LONG,\n" + " 4 -> HILLS,\n" + " 5 -> CROSSTRAIN,\n" + " 6 -> REST,\n"
-                + " 7 -> STRETCH,\n" + " 8 -> RACE");
+                + " 3 -> LONG \n" + " 4 -> HILLS \n" + " 5 -> CROSSTRAIN \n" + " 6 -> REST \n"
+                + " 7 -> STRETCH \n");
         int value = input.nextInt();
         WorkoutType type = WorkoutType.valueOf(value);
 
-        System.out.println("Enter the distance you will run (in Kilometers):");
+        System.out.println("Enter the distance you will run in Kilometers (enter 0 if activity is not a run):");
         double distance = input.nextDouble();
 
         Workout createdWorkout = new Workout(year, month, day, type, distance, "");
@@ -111,6 +109,7 @@ public class RunningPlanApp {
         System.out.println("\n " + "Your workout has been added: " + "\n " + workoutString);
     }
 
+    //REQUIRES: valid year, valid month (1-12), and valid day (1-31)
     //MODIFIES: this
     //EFFECTS: allows user to add a new race to their plan for a specific day
     private void createNewRace() {
@@ -126,15 +125,16 @@ public class RunningPlanApp {
         System.out.println("Enter the distance you will run (in Kilometers):");
         double distance = input.nextDouble();
 
+        input.nextLine();
         System.out.println("Enter the name of the race:");
-        String comment = input.next();
+        String comment = "RACE NAME: " + input.nextLine();
 
         int value = 8;
         WorkoutType type = WorkoutType.valueOf(value);
 
         Workout createdRace = new Workout(year, month, day, type, distance, comment);
         workoutCalendar.addWorkout(createdRace);
-        String raceString = createdRace.raceToString();
+        String raceString = createdRace.workoutToString();
 
         System.out.println("\n " + "Your race has been added: " + "\n " + raceString);
     }
@@ -143,66 +143,64 @@ public class RunningPlanApp {
 
     //EFFECTS: allows user to check their workout on a specific day
     private void checkWorkout() {
-        System.out.println("What year will this workout take place?");
-        int year = input.nextInt();
+        if (workoutCalendar.workoutCalendarIsEmpty()) {
+            System.out.println("No workouts to display, please add a workout");
 
-        System.out.println("What month will this workout take place (1-12)?");
-        int month = input.nextInt();
+        } else if (!workoutCalendar.workoutCalendarIsEmpty()) {
+            String workoutCalendarString = workoutCalendar.getRunningPlan();
+            System.out.println("\n " + "Here is your running plan: " + "\n " + "\n " + workoutCalendarString);
 
-        System.out.println("What day will this workout take place (1-31)?");
-        int day = input.nextInt();
+            System.out.println("\n " + "Enter the number of the workout you would like to view");
+            int index = input.nextInt();
 
-        Workout workoutOnDay = workoutCalendar.findWorkoutOnDay(year, month, day);
-        String workoutString = workoutOnDay.workoutToString();
+            Workout workoutOnDay = workoutCalendar.getWorkout(index - 1);
+            String workoutString = workoutOnDay.workoutToString();
 
-        System.out.println("\n " + "Here is your workout:" + "\n " + workoutString);
+            System.out.println("\n " + "Here is your workout:" + "\n " + workoutString);
+        }
+
     }
 
 
     //EFFECTS: allows user to mark workout as complete
     private void completeWorkout() {
-        System.out.println("In what year did you complete this workout?");
-        int year = input.nextInt();
 
-        System.out.println("In what month did you complete this workout (1-12)?");
-        int month = input.nextInt();
+        if (workoutCalendar.workoutCalendarIsEmpty()) {
+            System.out.println("No workouts to display, please add a workout");
 
-        System.out.println("On what day did you complete this workout (1-31)?");
-        int day = input.nextInt();
+        } else if (!workoutCalendar.workoutCalendarIsEmpty()) {
+            String workoutCalendarString = workoutCalendar.getRunningPlan();
+            System.out.println("\n " + "Here is your running plan: " + "\n " + "\n " + workoutCalendarString);
 
-        Workout workoutOnDay = workoutCalendar.findWorkoutOnDay(year, month, day);
-        workoutOnDay.setWorkoutStatusComplete();
-        String workoutString = workoutOnDay.workoutToString();
+            System.out.println("\n " + "Enter the number of the workout you completed");
+            int index = input.nextInt();
 
-        System.out.println("\n" + "Your workout status has been set to complete!" + "\n " + workoutString);
-    }
+            input.nextLine();
+            System.out.println("Add a comment on your run: ");
+            String comment = input.nextLine();
 
-    //EFFECTS: allows user to add a comment to their workout
-    private void commentWorkout() {
-        System.out.println("In what year did you complete this workout?");
-        int year = input.nextInt();
+            Workout workoutOnDay = workoutCalendar.getWorkout(index - 1);
+            workoutOnDay.setWorkoutStatusComplete();
+            workoutOnDay.setWorkoutComment(comment);
+            String workoutString = workoutOnDay.workoutToString();
 
-        System.out.println("In what month did you complete this workout (1-12)?");
-        int month = input.nextInt();
+            System.out.println("\n" + "Your workout has been completed!" + "\n " + workoutString);
+        }
 
-        System.out.println("On what day did you complete this workout (1-31)?");
-        int day = input.nextInt();
-
-        System.out.println("Enter your comment: ");
-        String comment = input.next();
-
-        Workout workoutOnDay = workoutCalendar.findWorkoutOnDay(year, month, day);
-        workoutOnDay.setWorkoutComment(comment);
-        String workoutString = workoutOnDay.workoutToString();
-
-        System.out.println("\n " + "Your comment has been added" + "\n " + workoutString);
     }
 
 
     //EFFECTS: allows user to view their overall plan
     private void viewPlan() {
-        String workoutCalendarString = workoutCalendar.getRunningPlan();
-        System.out.println("\n " + "Here is your running plan: " + "\n " + workoutCalendarString);
+
+        if (workoutCalendar.workoutCalendarIsEmpty()) {
+            System.out.println("No workouts to display, please add a workout");
+
+        } else if (!workoutCalendar.workoutCalendarIsEmpty()) {
+            String workoutCalendarString = workoutCalendar.getRunningPlan();
+            System.out.println("\n " + "Here is your running plan: " + "\n " + "\n " + workoutCalendarString);
+        }
+
     }
 
 
