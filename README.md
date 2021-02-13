@@ -55,12 +55,12 @@
 >>
 
 >>**A Note on Pace:**
->>>
+>>
 >>Here is a little guide to choosing a pace for your runs:
->>>
+>>
 >> **Easy Pace:** This is a pace that is comfortable and easy to talk through.
 >> This pace is ideal for long runs and your "down" intervals in speed workouts. 
->>>
+>>
 >> **Moderate Pace:** Sometimes called your "Tempo Pace", this should be more challenging
 >> than your Easy pace, it should be getting more difficult to hold a conversation. 
 >> Throw this pace into your medium runs and speed intervals. 
