@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 //Workout with a date, type, distance, comment, and status.
-public class Workout {
+public class Workout extends runningWorkout {
     private Date date = null;
     private WorkoutType type = null;
     private double distance = 0;

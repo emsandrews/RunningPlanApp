@@ -9,7 +9,7 @@ public enum WorkoutType {
     MEDIUM(2),
     LONG(3),
     HILLS(4),
-    CROSSTRAIN(5),
+    CROSS_TRAIN(5),
     REST(6),
     STRETCH(7),
     RACE(8);

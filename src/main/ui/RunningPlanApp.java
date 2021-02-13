@@ -93,9 +93,9 @@ public class RunningPlanApp {
         System.out.println("Enter the day you will complete this workout (1-31):");
         int day = input.nextInt();
 
-        System.out.println("   //Enter the type of workout:\n" + " 1 -> SPEED,\n" + " 2 -> MEDIUM,\n"
-                + " 3 -> LONG \n" + " 4 -> HILLS \n" + " 5 -> CROSSTRAIN \n" + " 6 -> REST \n"
-                + " 7 -> STRETCH \n");
+        System.out.println("   //Enter the type of workout:\n" + " 1 -> Speed Workout,\n" + " 2 -> Medium Run,\n"
+                + " 3 -> Long Run \n" + " 4 -> Hill Workout \n" + " 5 -> Cross Training \n" + " 6 -> Rest Day \n"
+                + " 7 -> Stretch or Yoga \n");
         int value = input.nextInt();
         WorkoutType type = WorkoutType.valueOf(value);
 
