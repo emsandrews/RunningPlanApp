@@ -53,7 +53,7 @@
 >>Pay attention to the details!
 >>Any pains that persist the day after your run is your body telling you to take a break! 
 >>
-
+>>
 >>**A Note on Pace:**
 >>
 >>Here is a little guide to choosing a pace for your runs:
