@@ -162,7 +162,7 @@ public class RunningPlanApp {
     }
 
 
-    //EFFECTS: allows user to mark workout as complete
+    //EFFECTS: allows user to mark workout as complete and leave a comment
     private void completeWorkout() {
 
         if (workoutCalendar.workoutCalendarIsEmpty()) {
