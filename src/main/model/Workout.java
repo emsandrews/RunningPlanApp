@@ -1,12 +1,14 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 //Workout with a date, type, distance, comment, and status.
 public class Workout {
-    private Date date = null;
+    private LocalDate date = null;
     private WorkoutType type = null;
     private double distance = 0;
     private String comment = "";
@@ -16,14 +18,14 @@ public class Workout {
     //REQUIRES: valid month (1-12), and valid day (1-31)
     //EFFECTS: Constructs a workout
     public Workout(int year, int month, int day, WorkoutType type, double distance, String comment) {
-        this.date = new GregorianCalendar(year, month - 1, day).getTime();
+        this.date = LocalDate.of(year, month, day);
         this.type = type;
         this.distance = distance;
         this.comment = comment;
     }
 
     //EFFECTS returns workout date
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -73,8 +75,8 @@ public class Workout {
 
     //EFFECTS: returns the workout as a string
     public String workoutToString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyy");
-        String strDate = formatter.format(this.date);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy");
+        String strDate = this.date.format(formatter);
         String type = this.type.toString();
         String distance = Double.toString(this.distance);
         String status = workoutStatusToString();
@@ -90,8 +92,8 @@ public class Workout {
 
     //EFFECTS: returns the workout as a string
     public String raceToString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyy");
-        String strDate = formatter.format(this.date);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy");
+        String strDate = this.date.format(formatter);
         String type = this.type.toString();
         String distance = Double.toString(this.distance);
         String status = workoutStatusToString();

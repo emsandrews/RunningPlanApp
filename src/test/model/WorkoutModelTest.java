@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
@@ -18,8 +20,8 @@ class WorkoutModelTest {
     @BeforeEach
     public void runBefore(){
         workoutOne = new Workout(2021, 2, 20, WorkoutType.SPEED, 12, "");
-        workoutTwo = new Workout(2021, 2, 30, WorkoutType.LONG, 20, "");
-        workoutThree = new Workout(2021, 10, 10, WorkoutType.LONG, 20, "great run");
+        workoutTwo = new Workout(2021, 2, 21, WorkoutType.LONG, 20, "");
+        workoutThree = new Workout(2021, 2, 22, WorkoutType.LONG, 20, "great run");
         workouts = new WorkoutCalendar();
         testCalendar = new ArrayList<>();
     }
@@ -48,7 +50,7 @@ class WorkoutModelTest {
                 + "Status: " + "Incomplete" + "\n \n "
 
                 + "Workout Number: 2" + "\n "
-                + "Date: " + "02/03/2021" + "\n "
+                + "Date: " + "21/02/2021" + "\n "
                 + "Type: " + "LONG" + "\n "
                 + "Distance: " + "20.0" + "\n "
                 + "Comment: " + "\n "
@@ -97,8 +99,8 @@ class WorkoutModelTest {
 
     @Test
     public void testWorkoutDateSet() {
-        Date date = new GregorianCalendar(2020, 2 - 1, 12).getTime();
-        Workout workoutOnDay = new Workout(2020, 2, 12, WorkoutType.SPEED, 12, null);
+        LocalDate date = LocalDate.of(2020, 1, 12);
+        Workout workoutOnDay = new Workout(2020, 1, 12, WorkoutType.SPEED, 12, null);
         assertEquals(date, workoutOnDay.getDate());
     }
 
@@ -106,7 +108,7 @@ class WorkoutModelTest {
     @Test
     public void testWorkoutTypeSet() {
         WorkoutType type = WorkoutType.LONG;
-        Workout workoutWithType = new Workout(2020, 2, 12, type, 12, null);
+        Workout workoutWithType = new Workout(2020, 1, 12, type, 12, null);
         assertEquals(type, workoutWithType.getWorkoutType());
     }
 
@@ -114,14 +116,14 @@ class WorkoutModelTest {
     @Test
     public void testWorkoutDistanceSet() {
         int distance = 10;
-        Workout workoutWithDistance = new Workout(2020, 2, 12, WorkoutType.SPEED, distance, null);
+        Workout workoutWithDistance = new Workout(2020, 1, 12, WorkoutType.SPEED, distance, null);
         assertEquals(distance, workoutWithDistance.getDistance());
     }
 
     @Test
     public void testGetDate() {
-        Date date = workoutOne.getDate();
-        Date testDate = new GregorianCalendar(2021, 2 - 1, 20).getTime();
+        LocalDate date = workoutOne.getDate();
+        LocalDate testDate = LocalDate.of(2021, 2, 20);
         assertEquals(testDate, date);
     }
 
@@ -192,7 +194,7 @@ class WorkoutModelTest {
     @Test
     public void testGetWorkoutTypeFromValue() {
         WorkoutType type = WorkoutType.valueOf(3);
-        Workout workoutWithType = new Workout(2020, 2, 12, type, 12, null);
+        Workout workoutWithType = new Workout(2020, 1, 12, type, 12, null);
         assertEquals(type, workoutWithType.getWorkoutType());
 
     }
@@ -202,5 +204,7 @@ class WorkoutModelTest {
         WorkoutType workoutType = WorkoutType.SPEED;
         assertEquals(1, workoutType.getValue());
     }
+
+
 
 }
