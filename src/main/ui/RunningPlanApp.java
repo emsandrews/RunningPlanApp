@@ -1,8 +1,7 @@
 package ui;
 
-import model.Workout;
-import model.WorkoutType;
-import model.WorkoutCalendar;
+import model.*;
+
 import java.util.Scanner;
 
 
@@ -102,9 +101,9 @@ public class RunningPlanApp {
         System.out.println("Enter the distance you will run in Kilometers (enter 0 if activity is not a run):");
         double distance = input.nextDouble();
 
-        Workout createdWorkout = new Workout(year, month, day, type, distance, "");
-        workoutCalendar.addWorkout(createdWorkout);
-        String workoutString = createdWorkout.workoutToString();
+        TrainingWorkout createdTrainingWorkout = new TrainingWorkout(year, month, day, type, distance, "");
+        workoutCalendar.addTrainingWorkout(createdTrainingWorkout);
+        String workoutString = createdTrainingWorkout.workoutToString();
 
         System.out.println("\n " + "Your workout has been added: " + "\n " + workoutString);
     }
@@ -127,13 +126,13 @@ public class RunningPlanApp {
 
         input.nextLine();
         System.out.println("Enter the name of the race:");
-        String comment = "RACE NAME: " + input.nextLine();
+        String raceName = input.nextLine();
 
         int value = 8;
         WorkoutType type = WorkoutType.valueOf(value);
 
-        Workout createdRace = new Workout(year, month, day, type, distance, comment);
-        workoutCalendar.addWorkout(createdRace);
+        RaceWorkout createdRace = new RaceWorkout(year, month, day, type, distance, "", raceName);
+        workoutCalendar.addRaceWorkout(createdRace);
         String raceString = createdRace.workoutToString();
 
         System.out.println("\n " + "Your race has been added: " + "\n " + raceString);
@@ -179,10 +178,10 @@ public class RunningPlanApp {
             System.out.println("Add a comment on your run: ");
             String comment = input.nextLine();
 
-            Workout workoutOnDay = workoutCalendar.getWorkout(index - 1);
-            workoutOnDay.setWorkoutStatusComplete();
-            workoutOnDay.setWorkoutComment(comment);
-            String workoutString = workoutOnDay.workoutToString();
+            Workout trainingWorkoutOnDay = workoutCalendar.getWorkout(index - 1);
+            trainingWorkoutOnDay.setWorkoutStatusComplete();
+            trainingWorkoutOnDay.setWorkoutComment(comment);
+            String workoutString = trainingWorkoutOnDay.workoutToString();
 
             System.out.println("\n" + "Your workout has been completed!" + "\n " + workoutString);
         }

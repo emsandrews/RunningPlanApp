@@ -3,29 +3,38 @@ package model;
 //Add a workout to your calendar, get workout, remove workout
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
 
 //represent a list of dates and workouts
 public class WorkoutCalendar {
 
     private ArrayList<Workout> workouts;
+    private TrainingWorkout trainingWorkout;
+    private RaceWorkout raceWorkout;
 
     //EFFECTS: constructs an empty workout calendar (list of workouts)
     public WorkoutCalendar() {
         this.workouts = new ArrayList<>();
 
+
     }
 
     //MODIFIES: this
     //EFFECTS: adds a new workout or race to the workout calendar
-    public void addWorkout(Workout workout) {
-        workouts.add(workout);
+    public void addTrainingWorkout(TrainingWorkout trainingWorkout) {
+        workouts.add(trainingWorkout);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: adds a new workout or race to the workout calendar
+    public void addRaceWorkout(RaceWorkout raceWorkout) {
+        workouts.add(raceWorkout);
     }
 
     public Workout getWorkout(int i) {
         return workouts.get(i);
     }
+
 
     //EFFECTS: produces true if workout calendar is empty
     public Boolean workoutCalendarIsEmpty() {

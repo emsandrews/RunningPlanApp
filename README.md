@@ -16,17 +16,17 @@
 >
 >>**Step 1: Set the Date**
 >>
->>Choose a date for your workout.
+>>Choose a date for your trainingWorkout.
 >>
 >>**Step 2: Choose Your Workout Type**
 >>
->>Choose the type of workout you want to complete.
+>>Choose the type of trainingWorkout you want to complete.
 >>Here are the types of workouts you can choose from: 
 >> - **Speed Workout:** Intervals or fartlek run alternating between an easy and hard pace.
 >> - **Long Run:** A long run at an easy pace
 >> - **Medium Run:** A medium length run at an easy to moderate pace
 >> - **Hill Workout:** A medium length hilly run, throw in a few hill sprints for fun!
->> - **Cross Training:** Try cycling, swimming, or a strength workout on this day
+>> - **Cross Training:** Try cycling, swimming, or a strength trainingWorkout on this day
 >> - **Yoga or Stretch:** Get in some easy movement.
 >> - **Rest:** Take it easy and thank your body for all the hard work! 
 >>
@@ -41,7 +41,7 @@
 >>**Step 5: Build Your Plan!**
 >>
 >>You should try to aim for at least 3 runs a week including 
->>a long run, a medium run (or hills), and a speed workout. 
+>>a long run, a medium run (or hills), and a speed trainingWorkout. 
 >>Fill in your other days with cross training, yoga, and at least one rest day. 
 >>Don't forget to add a race, so you have something to work towards!
 >>
@@ -77,9 +77,9 @@ ___
 ### User Stories
 
 > - As a user I want to add multiple workouts or races to my running plan.
-> - As a user I want to mark a workout or race as complete. 
-> - As a user I want to leave a comment on a workout.
-> - As a user I want to view a workout.
+> - As a user I want to mark a trainingWorkout or race as complete. 
+> - As a user I want to leave a comment on a trainingWorkout.
+> - As a user I want to view a trainingWorkout.
 > - As a user I want to view all the workouts on my running plan. 
 
 

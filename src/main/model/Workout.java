@@ -2,17 +2,14 @@ package model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
 
-//Workout with a date, type, distance, comment, and status.
-public class Workout {
-    private LocalDate date = null;
-    private WorkoutType type = null;
-    private double distance = 0;
-    private String comment = "";
-    private Boolean status = false;
+public abstract class Workout {
+
+    protected LocalDate date = null;
+    protected WorkoutType type = null;
+    protected double distance = 0;
+    protected String comment = "";
+    protected Boolean status = false;
 
 
     //REQUIRES: valid month (1-12), and valid day (1-31)
@@ -90,20 +87,5 @@ public class Workout {
     }
 
 
-    //EFFECTS: returns the workout as a string
-    public String raceToString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy");
-        String strDate = this.date.format(formatter);
-        String type = this.type.toString();
-        String distance = Double.toString(this.distance);
-        String status = workoutStatusToString();
-
-        return "Date: " + strDate + "\n "
-                + "Type: " + type + "\n "
-                + "Distance: " + distance + "\n "
-                + "Race Name: " + this.comment + "\n "
-                + "Status: " + status;
-
-    }
-
 }
+
