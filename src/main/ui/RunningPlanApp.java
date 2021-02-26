@@ -49,20 +49,23 @@ public class RunningPlanApp {
     //MODIFIES: this
     //EFFECTS: processes user commands
     private void processCommand(String command) {
-
-
-        if (command.equals("new")) {
-            createNewWorkout();
-        } else if (command.equals("race")) {
-            createNewRace();
-        } else if (command.equals("workout")) {
-            checkWorkout();
-        } else if (command.equals("complete")) {
-            completeWorkout();
-        }  else if (command.equals("view")) {
-            viewPlan();
-        } else {
-            System.out.println("Selection not valid...");
+        switch (command) {
+            case "new":
+                createNewWorkout();
+                break;
+            case "race":
+                createNewRace();
+                break;
+            case "workout":
+                checkWorkout();
+                break;
+            case "complete":
+                completeWorkout();
+                break;
+            case "view":
+                viewPlan();
+                break;
+            default: System.out.println("Selection not valid...");
         }
     }
 
