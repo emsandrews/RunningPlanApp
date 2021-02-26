@@ -81,5 +81,7 @@ ___
 > - As a user I want to leave a comment on a trainingWorkout.
 > - As a user I want to view a trainingWorkout.
 > - As a user I want to view all the workouts on my running plan. 
+> - As a user I want to be able to save my running plan. 
+> - As a user I want to be able to load my running plan from file. 
 
 
