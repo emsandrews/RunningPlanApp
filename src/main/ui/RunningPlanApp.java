@@ -1,48 +1,104 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class RunningPlanApp {
+    private static final String JSON_STORE = "./data/workoutCalendar.json";
     private Scanner input;
     private WorkoutCalendar workoutCalendar;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private String name = "";
 
-    //EFFECTS: runs the Running Plan App
-    public RunningPlanApp() {
+    //EFFECTS: runs the Running Plan App, throws FileNotFoundException
+    public RunningPlanApp() throws FileNotFoundException {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runApp();
     }
 
-    //EFFECTS: initializes scanner
+
+    //EFFECTS: initializes scanner creates WorkoutCalendar with a name.
     private void init() {
         input = new Scanner(System.in);
-        workoutCalendar = new WorkoutCalendar();
+        workoutCalendar = new WorkoutCalendar(this.name);
+        initPlan();
+
+    }
+
+    //MODIFIES: this
+    //EFFECTS: loads plan from file or creates new plan with a given name.
+    private void initPlan() {
+        System.out.println("Welcome to the Running Plan App");
+
+        System.out.println("Do you want to load your plan or create a new plan?");
+        System.out.println("\t l -> load plan");
+        System.out.println("\t n -> create new plan");
+        String load = input.nextLine();
+        if (load.equals("l")) {
+            loadPlan();
+        } else if (load.equals("n")) {
+            System.out.println("Please enter your name: ");
+            String name = input.nextLine();
+            workoutCalendar.setName(name);
+        } else {
+            System.out.println("invalid input");
+            initPlan();
+        }
     }
 
 
     //MODIFIES: this
     //EFFECTS: processes user inputs
+    //continues running app until user quits.
+    //prompts user to save before quitting.
     private void runApp() {
-
         boolean keepGoing = true;
         String command = null;
-
         init();
-
         while (keepGoing) {
             displayMenu();
             command = input.next();
             command = command.toLowerCase();
-
             if (command.equals("quit")) {
-                keepGoing = false;
+                String save = quittingMenu();
+                if (save.equals("save")) {
+                    savePlan();
+                    keepGoing = false;
+                } else if (save.equals("no")) {
+                    keepGoing = false;
+                } else if (save.equals("m")) {
+                    keepGoing = true;
+                } else {
+                    System.out.println("invalid input");
+                    keepGoing = true;
+                }
             } else {
                 processCommand(command);
             }
         }
-
         System.out.println("Logging Off!");
+    }
+
+    //EFFECTS: prompts user to save changes before logging off.
+    // if user chooses not to save, quits app
+    // if user selects in valid input returns to main menu
+    private String quittingMenu() {
+        System.out.println("Do you want to save your plan before logging off? ");
+        System.out.println("Note: unsaved changes will be lost ");
+        System.out.println("\t save -> save changes");
+        System.out.println("\t no -> changes will not be saved");
+        input.nextLine();
+        System.out.println("\t m -> return to main menu");
+        String save = input.nextLine();
+        return save;
     }
 
 
@@ -79,7 +135,7 @@ public class RunningPlanApp {
         System.out.println("\t workout -> View a workout");
         System.out.println("\t complete -> Complete a workout");
         System.out.println("\t view -> View your running plan");
-        System.out.println("\t quit -> Log out");
+        System.out.println("\t quit -> Save and logout");
     }
 
     //REQUIRES: valid year, valid month (1-12), and valid day (1-31)
@@ -149,7 +205,7 @@ public class RunningPlanApp {
             System.out.println("No workouts to display, please add a workout");
 
         } else if (!workoutCalendar.workoutCalendarIsEmpty()) {
-            String workoutCalendarString = workoutCalendar.getRunningPlan();
+            String workoutCalendarString = workoutCalendar.workoutCalendarToString();
             System.out.println("\n " + "Here is your running plan: " + "\n " + "\n " + workoutCalendarString);
 
             System.out.println("\n " + "Enter the number of the workout you would like to view");
@@ -171,7 +227,7 @@ public class RunningPlanApp {
             System.out.println("No workouts to display, please add a workout");
 
         } else if (!workoutCalendar.workoutCalendarIsEmpty()) {
-            String workoutCalendarString = workoutCalendar.getRunningPlan();
+            String workoutCalendarString = workoutCalendar.workoutCalendarToString();
             System.out.println("\n " + "Here is your running plan: " + "\n " + "\n " + workoutCalendarString);
 
             System.out.println("\n " + "Enter the number of the workout you completed");
@@ -199,10 +255,34 @@ public class RunningPlanApp {
             System.out.println("No workouts to display, please add a workout");
 
         } else if (!workoutCalendar.workoutCalendarIsEmpty()) {
-            String workoutCalendarString = workoutCalendar.getRunningPlan();
-            System.out.println("\n " + "Here is your running plan: " + "\n " + "\n " + workoutCalendarString);
+            String workoutCalendarString = workoutCalendar.workoutCalendarToString();
+            System.out.println("\n " + workoutCalendar.getName() + "\n " + "\n " + workoutCalendarString);
         }
 
+    }
+
+    //EFFECTS: saves the users running plan to file
+    private void savePlan() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(workoutCalendar);
+            jsonWriter.close();
+            System.out.println("Saved running plan to" + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    //MODIFIES: this
+    //EFFECTS: loads the users running plan from file
+    private void loadPlan() {
+        try {
+            workoutCalendar = jsonReader.read();
+            System.out.println("Loaded running plan from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file:  " + JSON_STORE);
+        }
+        viewPlan();
     }
 
 

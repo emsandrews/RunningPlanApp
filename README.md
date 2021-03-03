@@ -82,6 +82,8 @@ ___
 > - As a user I want to view a trainingWorkout.
 > - As a user I want to view all the workouts on my running plan. 
 > - As a user I want to be able to save my running plan. 
-> - As a user I want to be able to load my running plan from file. 
+> - As a user I want to be able to load my running plan from a file. 
+> - As a user I want to be prompted to save my plan before quitting. 
+> - As a user I want to be prompted to load my plan upon entering the app. 
 
 

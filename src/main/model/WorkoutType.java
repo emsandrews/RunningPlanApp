@@ -3,7 +3,7 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
-//enumeration of possible workout types
+//Enumeration of possible workout types
 public enum WorkoutType {
     SPEED(1),
     MEDIUM(2),
