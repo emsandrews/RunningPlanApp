@@ -96,6 +96,8 @@ public class WorkoutCalendar implements Writable {
         return String.join("\n \n ", workoutStringList);
     }
 
+
+    //EFFECTS: returns workoutCalendar as json object.
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -104,7 +106,8 @@ public class WorkoutCalendar implements Writable {
         return json;
     }
 
-    //effects returns workouts in WorkoutCalendar as JSON array
+
+    //EFFECTS: returns workouts in WorkoutCalendar as JSON array
     private JSONArray workoutsToJson() {
         JSONArray jsonArray = new JSONArray();
 
