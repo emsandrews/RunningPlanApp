@@ -1,6 +1,6 @@
 package model;
 
-//Add a workout to your calendar, get workout, remove workout
+//Add a workout to your calendar, get workout, remove workout.
 
 import org.json.JSONArray;
 import org.json.JSONObject;
