@@ -68,23 +68,32 @@ public class RunningPlanApp {
             command = input.next();
             command = command.toLowerCase();
             if (command.equals("quit")) {
-                String save = quittingMenu();
-                if (save.equals("save")) {
-                    savePlan();
-                    keepGoing = false;
-                } else if (save.equals("no")) {
-                    keepGoing = false;
-                } else if (save.equals("m")) {
-                    keepGoing = true;
-                } else {
-                    System.out.println("invalid input");
-                    keepGoing = true;
-                }
+                keepGoing = isKeepGoing();
             } else {
                 processCommand(command);
             }
         }
         System.out.println("Logging Off!");
+    }
+
+
+    //EFFECTS: returns boolean for keepGoing to determine
+    //whether or not the app should quit.
+    private boolean isKeepGoing() {
+        boolean keepGoing;
+        String save = quittingMenu();
+        if (save.equals("save")) {
+            savePlan();
+            keepGoing = false;
+        } else if (save.equals("no")) {
+            keepGoing = false;
+        } else if (save.equals("m")) {
+            keepGoing = true;
+        } else {
+            System.out.println("invalid input");
+            keepGoing = true;
+        }
+        return keepGoing;
     }
 
     //EFFECTS: prompts user to save changes before logging off.
