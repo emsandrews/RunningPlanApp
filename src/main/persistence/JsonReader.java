@@ -27,8 +27,9 @@ public class JsonReader {
         return parseWorkoutCalendar(jsonObject);
     }
 
+
     //EFFECTS: reads source file as a string and returns it
-    private String readFile(String source) throws IOException {
+    public String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
         try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
@@ -45,6 +46,7 @@ public class JsonReader {
         addWorkouts(workoutCalendar, jsonObject);
         return workoutCalendar;
     }
+
 
     //MODIFIES: workoutCalendar
     //EFFECTS: parses workouts from JSON object and adds them to workoutCalendar

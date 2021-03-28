@@ -97,6 +97,7 @@ public class WorkoutCalendar implements Writable {
     }
 
 
+
     //EFFECTS: returns workoutCalendar as json object.
     @Override
     public JSONObject toJson() {

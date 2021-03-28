@@ -2,7 +2,9 @@ package model;
 
 import org.json.JSONObject;
 import persistence.Writable;
+import ui.gui.WorkoutTable;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -84,6 +86,10 @@ public abstract class Workout implements Writable {
 
     }
 
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
     //MODIFIES: this
     //EFFECTS: changes workout status to "true" indicating workout is complete for a given date
     public void setWorkoutStatusComplete() {
@@ -116,6 +122,7 @@ public abstract class Workout implements Writable {
                 + "Status: " + status;
 
     }
+
 
     @Override
     //EFFECTS: creates Json Object with Workout
