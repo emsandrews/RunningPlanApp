@@ -59,6 +59,12 @@ class WorkoutTest {
         assertEquals(date, raceWorkoutOnDay.getDate());
     }
 
+    @Test
+    public void testSetDistance() {
+        trainingWorkoutOne.setDistance(30);
+        assertEquals(30, trainingWorkoutOne.getDistance());
+    }
+
 
     @Test
     public void testRaceWorkoutDistanceSet() {

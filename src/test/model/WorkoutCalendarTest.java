@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 class WorkoutCalendarTest {
@@ -160,6 +161,7 @@ class WorkoutCalendarTest {
 
         assertEquals(testString, runningPlan);
     }
+
 
 
 }
