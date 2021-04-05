@@ -16,9 +16,7 @@ public class WorkoutTable extends JPanel {
     private WorkoutCalendar workoutCalendar;
     private static final String JSON_STORE = "./data/workoutCalendar.json";
     private JsonReader jsonReader = new JsonReader(JSON_STORE);
-    private JsonWriter jsonWriter = new JsonWriter(JSON_STORE);
     private int row = 0;
-    private Color coolBlue = new Color(168, 218, 220);
     private Color lightPurple = new Color(237, 242, 251);
     private Boolean status;
     private String comment;
