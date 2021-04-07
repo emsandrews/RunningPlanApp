@@ -108,36 +108,12 @@ public abstract class Workout implements Writable {
 
 
     //EFFECTS: returns the workout as a string
-    public String workoutToString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy");
-        String strDate = this.date.format(formatter);
-        String type = this.type.toString();
-        String distance = Double.toString(this.distance);
-        String status = workoutStatusToString();
-
-        return "Date: " + strDate + "\n "
-                + "Type: " + type + "\n "
-                + "Distance: " + distance + "\n "
-                + "Comment: " + this.comment + "\n "
-                + "Status: " + status;
-
-    }
+    public abstract String workoutToString();
 
 
     @Override
     //EFFECTS: creates Json Object with Workout
-    public JSONObject toJson() {
-        JSONObject json = new JSONObject();
-        int workoutTypeInt = type.getValue();
-        json.put("year", year);
-        json.put("month", month);
-        json.put("day", day);
-        json.put("type", workoutTypeInt);
-        json.put("distance", distance);
-        json.put("comment", comment);
-        json.put("status", status);
-        return json;
-    }
+    public abstract JSONObject toJson();
 
 
 }
