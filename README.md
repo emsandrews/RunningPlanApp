@@ -42,7 +42,7 @@
 >> - **Speed Workouts:** These can vary, but should be within 40-60% of your long run
 >> - **Hills:** Should be about 40-60% of your long run
 >>
-![alt text](**https://github.com/emsandrews/RunningPlan-App/blob/master/adding%20med%20run.png**)
+![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/adding%20med%20run.png)
 >>**Step 5: Build Your Plan!**
 >>
 >>You should try to aim for at least 3 runs a week including 
