@@ -74,7 +74,7 @@
 >> It should be difficult to hold a conversation through this pace.
 >> This pace is mainly for intervals in your speed workouts. Choose a time or distance that you can maintain. 
 >>
->>**NOW GO CRUSH THOSE GOALS!!!!**
+>>**WATCH A PRODUCT DEMO [HERE](https://www.youtube.com/watch?v=w82rfDAN68U)**
 
 
 ___
