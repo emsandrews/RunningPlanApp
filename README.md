@@ -34,7 +34,7 @@ Here is a quick overview of how to use this app:
 > - **Yoga or Stretch:** Get in some easy movement.
 > - **Rest:** Take it easy and thank your body for all the hard work! 
 > 
-![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/drop%20down%20menu.png)
+![alt text](/drop-down-menu.png)
 >
 >**Step 3: How Far?**
 >
@@ -44,7 +44,7 @@ Here is a quick overview of how to use this app:
 > - **Speed Workouts:** These can vary, but should be within 40-60% of your long run
 > - **Hills:** Should be about 40-60% of your long run
 >
-![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/adding%20med%20run.png)
+![alt text](/adding-med-run.png)
 >**Step 5: Build Your Plan!**
 >
 >You should try to aim for at least 3 runs a week including 
