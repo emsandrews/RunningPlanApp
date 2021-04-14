@@ -31,6 +31,8 @@
 >> - **Cross Training:** Try cycling, swimming, or a strength trainingWorkout on this day
 >> - **Yoga or Stretch:** Get in some easy movement.
 >> - **Rest:** Take it easy and thank your body for all the hard work! 
+>> 
+![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/drop%20down%20menu.png)
 >>
 >>**Step 3: How Far?**
 >>
@@ -40,6 +42,7 @@
 >> - **Speed Workouts:** These can vary, but should be within 40-60% of your long run
 >> - **Hills:** Should be about 40-60% of your long run
 >>
+![alt text](**https://github.com/emsandrews/RunningPlan-App/blob/master/adding%20med%20run.png**)
 >>**Step 5: Build Your Plan!**
 >>
 >>You should try to aim for at least 3 runs a week including 
@@ -47,8 +50,6 @@
 >>Fill in your other days with cross training, yoga, and at least one rest day. 
 >>Don't forget to add a race, so you have something to work towards!
 >>
-![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/drop%20down%20menu.png)
-
 >>**Step 5: Get To It!**
 >>
 >>You can now start to execute on your plan. 
