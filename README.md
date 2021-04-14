@@ -93,3 +93,7 @@ ___
 > - As a user I want to be prompted to save my plan before quitting. 
 > - As a user I want to be prompted to load my plan upon entering the app. 
 
+___
+
+### Technical Aspects
+> This app was built in Java. Persistance was implemented by reading and writing to a JSON file. Initially this app ran as a console app, and then I build a Grapical User Interface using Java Swing components. 
