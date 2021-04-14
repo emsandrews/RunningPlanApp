@@ -2,7 +2,7 @@
 
 ## An app to create a personalized running plan!
 
-![load page](/master/load-page.png)
+![load page](master/load-page.png)
 
 ## **WATCH A PRODUCT DEMO [HERE](https://www.youtube.com/watch?v=w82rfDAN68U)**
 
