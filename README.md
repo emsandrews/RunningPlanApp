@@ -2,7 +2,7 @@
 
 ## An app to create a personalized running plan!
 
-![banner](added medium run.png)
+![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/added%20medium%20run.png)
 
 ### App Description and Purpose
 
