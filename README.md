@@ -47,6 +47,8 @@
 >>Fill in your other days with cross training, yoga, and at least one rest day. 
 >>Don't forget to add a race, so you have something to work towards!
 >>
+![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/drop%20down%20menu.png)
+
 >>**Step 5: Get To It!**
 >>
 >>You can now start to execute on your plan. 
