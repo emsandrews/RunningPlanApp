@@ -2,6 +2,8 @@
 
 ## An app to create a personalized running plan!
 
+![banner](added medium run.png)
+
 ### App Description and Purpose
 
 
