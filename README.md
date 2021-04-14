@@ -9,15 +9,15 @@
 ### App Description and Purpose
 
 
->
->This app is for anyone who is interested in running and wants to be able to build their own running plan. 
->
->I was inspired to build this app because I am passionate about running, and wanted to make it easy for anyone
->to create a running plan and achieve their goals!
->
->Here is a quick overview of how to use this app: 
->
->
+
+This app is for anyone who is interested in running and wants to be able to build their own running plan. 
+
+I was inspired to build this app because I am passionate about running, and wanted to make it easy for anyone
+to create a running plan and achieve their goals!
+
+Here is a quick overview of how to use this app: 
+
+
 >**Step 1: Set the Date**
 >
 >Choose a date for your trainingWorkout.
