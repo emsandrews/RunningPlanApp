@@ -86,22 +86,3 @@ ___
 > - As a user I want to be prompted to save my plan before quitting. 
 > - As a user I want to be prompted to load my plan upon entering the app. 
 
-
-### Phase 4: Task 2
-> **Option 2: Include a type hierarchy**
-> My project includes a type hierarchy where the Workout class is an abstract class and both the TraningWorkout class
-> and the RaceWorkout class extend Workout. TrainingWorkout and RaceWorkout both override and implement their own 
-> versions of the workoutToString() method and the toJson() method. 
->
-> **Option 3: Make appropriate use of the Map Interface**
-> My project also includes an enumeration WorkoutType. Included in this class is a hashmap that maps the 
-> WorkoutTypes in the enumeration to an integer key. This integer key is used in the main and ui classes to easily 
-> retrieve the WorkoutType from the enumeration. 
-
-
-### Phase 4: Task 3
-> My UML class diagram indicates that there is some unnecessary associations between RunPlanGui, WorkoutTable, and 
-> various classes in the model and persistence packages. If I had more time to work on the design of this project 
-> I would implement the observer pattern to reduce these associates. The observers could listen for certain actions in 
-> the gui and then implement the necessary changes within the appropriate classes. There is also a bi-directional 
-> relationship between Welcome Panel and Main gui that could be eliminated by using the observer pattern. 
