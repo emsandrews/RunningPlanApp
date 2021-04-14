@@ -4,6 +4,8 @@
 
 ![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/load%20page.png)
 
+## **WATCH A PRODUCT DEMO [HERE](https://www.youtube.com/watch?v=w82rfDAN68U)**
+
 ### App Description and Purpose
 
 
@@ -16,65 +18,65 @@
 >Here is a quick overview of how to use this app: 
 >
 >
->>**Step 1: Set the Date**
->>
->>Choose a date for your trainingWorkout.
->>
->>**Step 2: Choose Your Workout Type**
->>
->>Choose the type of trainingWorkout you want to complete.
->>Here are the types of workouts you can choose from: 
->> - **Speed Workout:** Intervals or fartlek run alternating between an easy and hard pace.
->> - **Long Run:** A long run at an easy pace
->> - **Medium Run:** A medium length run at an easy to moderate pace
->> - **Hill Workout:** A medium length hilly run, throw in a few hill sprints for fun!
->> - **Cross Training:** Try cycling, swimming, or a strength trainingWorkout on this day
->> - **Yoga or Stretch:** Get in some easy movement.
->> - **Rest:** Take it easy and thank your body for all the hard work! 
->> 
+>**Step 1: Set the Date**
+>
+>Choose a date for your trainingWorkout.
+>
+>**Step 2: Choose Your Workout Type**
+>
+>Choose the type of trainingWorkout you want to complete.
+>Here are the types of workouts you can choose from: 
+> - **Speed Workout:** Intervals or fartlek run alternating between an easy and hard pace.
+> - **Long Run:** A long run at an easy pace
+> - **Medium Run:** A medium length run at an easy to moderate pace
+> - **Hill Workout:** A medium length hilly run, throw in a few hill sprints for fun!
+> - **Cross Training:** Try cycling, swimming, or a strength trainingWorkout on this day
+> - **Yoga or Stretch:** Get in some easy movement.
+> - **Rest:** Take it easy and thank your body for all the hard work! 
+> 
 ![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/drop%20down%20menu.png)
->>
->>**Step 3: How Far?**
->>
->>Choose a distance for your run:
->> - **Long Runs:** Should be based on your current longest run to date, increase this distance slightly every week
->> - **Medium runs:** Should be about 60% of the distance of your long run
->> - **Speed Workouts:** These can vary, but should be within 40-60% of your long run
->> - **Hills:** Should be about 40-60% of your long run
->>
+>
+>**Step 3: How Far?**
+>
+>Choose a distance for your run:
+> - **Long Runs:** Should be based on your current longest run to date, increase this distance slightly every week
+> - **Medium runs:** Should be about 60% of the distance of your long run
+> - **Speed Workouts:** These can vary, but should be within 40-60% of your long run
+> - **Hills:** Should be about 40-60% of your long run
+>
 ![alt text](https://github.com/emsandrews/RunningPlan-App/blob/master/adding%20med%20run.png)
->>**Step 5: Build Your Plan!**
->>
->>You should try to aim for at least 3 runs a week including 
->>a long run, a medium run (or hills), and a speed trainingWorkout. 
->>Fill in your other days with cross training, yoga, and at least one rest day. 
->>Don't forget to add a race, so you have something to work towards!
->>
->>**Step 5: Get To It!**
->>
->>You can now start to execute on your plan. 
->>Mark off your workouts as complete as you go along and leave a comment on how the run went.
->>These comments will be helpful to look back on as you evaluate the success of your plan. 
->>Pay attention to the details!
->>Any pains that persist the day after your run is your body telling you to take a break! 
->>
->>
->>**A Note on Pace:**
->>
->>Here is a little guide to choosing a pace for your runs:
->>
->> **Easy Pace:** This is a pace that is comfortable and easy to talk through.
->> This pace is ideal for long runs and your "down" intervals in speed workouts. 
->>
->> **Moderate Pace:** Sometimes called your "Tempo Pace", this should be more challenging
->> than your Easy pace, it should be getting more difficult to hold a conversation. 
->> Throw this pace into your medium runs and speed intervals. 
->>
->> **Hard Pace:** Sometimes called your "Race Pace". This should be pushing to your limits. 
->> It should be difficult to hold a conversation through this pace.
->> This pace is mainly for intervals in your speed workouts. Choose a time or distance that you can maintain. 
->>
->>**WATCH A PRODUCT DEMO [HERE](https://www.youtube.com/watch?v=w82rfDAN68U)**
+>**Step 5: Build Your Plan!**
+>
+>You should try to aim for at least 3 runs a week including 
+>a long run, a medium run (or hills), and a speed trainingWorkout. 
+>Fill in your other days with cross training, yoga, and at least one rest day. 
+>Don't forget to add a race, so you have something to work towards!
+>
+>**Step 5: Get To It!**
+>
+>You can now start to execute on your plan. 
+>Mark off your workouts as complete as you go along and leave a comment on how the run went.
+>These comments will be helpful to look back on as you evaluate the success of your plan. 
+>Pay attention to the details!
+>Any pains that persist the day after your run is your body telling you to take a break! 
+>
+>
+>**A Note on Pace:**
+>
+>Here is a little guide to choosing a pace for your runs:
+>
+> **Easy Pace:** This is a pace that is comfortable and easy to talk through.
+> This pace is ideal for long runs and your "down" intervals in speed workouts. 
+>
+> **Moderate Pace:** Sometimes called your "Tempo Pace", this should be more challenging
+> than your Easy pace, it should be getting more difficult to hold a conversation. 
+> Throw this pace into your medium runs and speed intervals. 
+>
+> **Hard Pace:** Sometimes called your "Race Pace". This should be pushing to your limits. 
+> It should be difficult to hold a conversation through this pace.
+> This pace is mainly for intervals in your speed workouts. Choose a time or distance that you can maintain. 
+>
+>
 
 
 ___
